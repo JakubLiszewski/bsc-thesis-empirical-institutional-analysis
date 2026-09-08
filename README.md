@@ -1,28 +1,30 @@
-# Quality of State Institutions and the Resource Curse
-**Empirical analysis using economic growth regressions (1990–2020)**
+# Empirical Institutional Analysis & The Resource Curse
 
-This repository contains the Python implementation of my Bachelor's Thesis, originally defended at the SGH Warsaw School of Economics. The project empirically verifies the hypothesis concerning the role of institutional quality in shaping the relationship between natural resource abundance and economic growth.
+This repository contains the complete econometric data analysis pipeline developed for my bachelor's thesis (Szkoła Główna Handlowa w Warszawie - SGH). The project investigates the conditional impact of natural resource rents on long-term economic growth, emphasizing the moderating role of institutional quality across a cross-country sample.
 
-## 📊 Project Overview
-The "resource curse" is a paradoxical phenomenon where countries with abundant natural resources tend to experience slower economic growth than those with fewer natural resources. This analysis aims to determine whether the quality of state institutions acts as a conditional factor that dictates how resource wealth impacts long-term GDP growth.
+## Project Structure
 
-**Key features of this analysis:**
-* **Cross-sectional data analysis** for a sample of 49 countries over a 30-year horizon (1990–2020).
-* **Multiple OLS regression models** incorporating interaction variables to test conditional dependencies.
-* **Advanced econometric diagnostics**, including White's robust standard errors (HC1), the Delta method for marginal effects, and tests for multicollinearity (VIF) and heteroskedasticity (Breusch-Pagan).
+* **`bsc_thesis_analysis.py`**: Main Python script executing data cleaning, transformation, OLS regressions (models M1–M4), robustness checks, econometric diagnostics, and marginal effects calculations.
+* **`*.csv`**: Raw macroeconomic and institutional datasets (World Bank, WGI indicators, 1990–2020).
 
-## 🛠️ Tech Stack
-* **Language:** Python 
-* **Data Manipulation:** `pandas`, `numpy`
-* **Statistical Modeling:** `statsmodels`, `scipy`
-* **Data Visualization:** `matplotlib`, `seaborn`
-* **Reporting:** `stargazer` (for LaTeX/text regression tables)
+## Methodology & Econometric Models
 
-## 📈 Key Findings
-1. **No Unconditional Curse:** The study did not find sufficient evidence for an unconditional negative relationship between resource abundance and economic growth in the modern economy (1990-2020).
-2. **Institutions Matter:** High-quality state institutions (measured by the control of corruption index) have a significant, positive impact on long-term GDP dynamics.
-3. **The Conditional Nature of the Curse:** The relationship between resource wealth and economic growth is highly dependent on institutional quality. Efficient, transparent institutions allow states to leverage resource rents for growth, effectively reversing the negative effects of the resource curse. 
+1. **Conditional Convergence Model**: Ordinary Least Squares (OLS) estimation based on an augmented Solow-Swan growth framework.
+2. **Interaction Analysis**: Investigating whether high institutional quality mitigates the "resource curse" associated with natural resource rents.
+3. **Robustness Checks**: 
+   - Base-year specifications ($1990/1996$).
+   - Extended sample size ($N = 124$).
+   - Shortened period comparison ($1995–2020$).
+4. **Diagnostics**: Heteroscedasticity-robust standard errors (HC1), Jarque-Bera normality tests, Ramsey RESET tests, and Variance Inflation Factor (VIF) analysis for multicollinearity.
 
-## 📂 Data Sources
-* **World Bank (WDI):** GDP per capita, natural resource rents, gross capital formation, trade openness, and school enrollment.
-* **World Bank (WGI):** Control of Corruption index.
+## Tech Stack
+
+* **Language**: Python 3.13
+* **Libraries**: `pandas`, `numpy`, `statsmodels`, `matplotlib`, `seaborn`
+
+## Usage
+
+Ensure all CSV data files and `bsc_thesis_analysis.py` are in the same working directory, then run:
+
+```bash
+python bsc_thesis_analysis.py
